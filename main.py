@@ -11,7 +11,7 @@ def an(s):
     global step, name_step, run
     if step:
         step = False
-    elif s.isdigit():
+    if s.isdigit():
         s = int(s)
         t = False
         if s != 1:
