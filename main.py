@@ -34,7 +34,7 @@ def an(s):
         s = input('please enter "q" to end the step\n')
         while s != 'q':
             s = input('please enter "q" to end the step\n')
-        an(s)
+        print()
     elif s == 'r':
         bar = input()
         steps[-1][-1] = bar
