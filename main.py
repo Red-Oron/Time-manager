@@ -1,6 +1,7 @@
 from save import steps
 import datetime as dt
 from constants import activities, actions, sp
+from circle_chart import chart
 run, step, name_step = True, False, ''
 
 
@@ -43,6 +44,8 @@ def an(s):
             steps.pop(len(steps) - 1)
     elif s == 't':
         run = False
+    elif s == 'y':
+        chart(steps)
     else:
         print()
 

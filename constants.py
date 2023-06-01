@@ -9,6 +9,7 @@ actions = {
     'w': 'add description to step',
     'e': 'delete last step',
     'r': 'go back',
-    't': 'finish program'
+    't': 'finish program',
+    'y': 'create circle chart',
 }
-sp = ['q', 'w', 'e', 'r', 't']
+sp = ['q', 'w', 'e', 'r', 't', 'y']
