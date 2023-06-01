@@ -2,38 +2,34 @@ from save import steps
 import datetime as dt
 from constants import activities, actions, sp
 from circle_chart import chart
-run, step, name_step = True, False, ''
+run = True
 
 
 def an(s):
     from save import steps
     from constants import activities
-    global step, name_step, run
-    if step:
-        step = False
+    global run
     if s.isdigit():
         s = int(s)
-        t = False
         if s != 1:
             print()
             for j in range(1, len(activities[s][1]) + 1):
                 print(f'{j}: {activities[s][1][j]}')
-            n = input('r: go back\n')
-            while n != 'r' and int(n) not in activities[s][1]:
+            n = input('q: go back\n')
+            while n != 'q' and int(n) not in activities[s][1]:
                 n = input()
-            if n != 'r':
+            if n != 'q':
                 name_step = f'{activities[s][0]}({activities[s][1][int(n)]})'
             else:
                 print()
                 return
         else:
             name_step = activities[s][0]
-        step = True
         steps.append([name_step, dt.datetime.now().timestamp(), ''])
         print(f'{name_step} step is underway')
-        s = input('please enter "q" to end the step\n')
+        s = input(f'please enter "q" to end the {name_step} step\n')
         while s != 'q':
-            s = input('please enter "q" to end the step\n')
+            s = input(f'please enter "q" to end the {name_step} step\n')
         print()
     elif s == 'r':
         bar = input()
