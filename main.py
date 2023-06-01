@@ -18,8 +18,7 @@ def an(s):
             print()
             for j in range(1, len(activities[s][1]) + 1):
                 print(f'{j}: {activities[s][1][j]}')
-            print()
-            n = input()
+            n = input('r: go back\n')
             while n != 'r' and int(n) not in activities[s][1]:
                 n = input()
             if n != 'r':
@@ -32,19 +31,19 @@ def an(s):
         step = True
         steps.append([name_step, dt.datetime.now().timestamp(), ''])
         print(f'{name_step} step is underway')
-        s = input()
+        s = input('please enter "q" to end the step\n')
         while s != 'q':
-            s = input('please enter "q"\n')
+            s = input('please enter "q" to end the step\n')
         an(s)
-    elif s == 'w':
+    elif s == 'r':
         bar = input()
         steps[-1][-1] = bar
     elif s == 'e':
         if input('y/n\n') == 'y':
             steps.pop(len(steps) - 1)
-    elif s == 't':
+    elif s == 'q':
         run = False
-    elif s == 'y':
+    elif s == 'w':
         chart(steps)
     else:
         print()
@@ -54,7 +53,6 @@ while run:
     print('choosing activity:')
     for i in range(1, len(activities) + 1):
         print(f'{i}: {activities[i][0]}')
-    print()
     for i in range(len(sp)):
         print(f'{sp[i]}: {actions[sp[i]]}')
     print()
