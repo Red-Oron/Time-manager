@@ -25,7 +25,7 @@ def an(s):
                 return
         else:
             name_step = activities[s][0]
-        steps.append([name_step, dt.datetime.now().timestamp(), ''])
+        steps.append([name_step, dt.datetime.now().timestamp(), str(dt.datetime.fromtimestamp(int(dt.datetime.now().timestamp()))), ''])
         print(f'{name_step} step is underway')
         s = input(f'please enter "q" to end the {name_step} step\n')
         while s != 'q':
