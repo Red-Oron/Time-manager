@@ -9,18 +9,21 @@ activities = {
 actions = {
     'q': 'finish program',
     'w': 'create circle chart',
-    'e': 'delete last step',
-    'r': 'add description to step',
+    'e': 'create barh chart',
+    'r': 'delete last step',
+    't': 'add description to step',
 }
-sp = ['q', 'w', 'e', 'r']
+sp = ['q', 'w', 'e', 'r', 't']
 
 ACTIVITIES = {
     "sleep": 'blue',
     "study(other)": 'red',
+    "other(other)": 'navy',
     "relax(watching video)": 'green',
     "relax(playing game)": 'yellow',
     'other(programming)': 'lime',
     'study(sirius)': 'purple',
+    'study(OGE)': 'pink',
 }
 
 EXCLUDE_VOIDS = False

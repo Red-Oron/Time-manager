@@ -2,6 +2,7 @@ from save import steps
 import datetime as dt
 from constants import activities, actions, sp
 from circle_chart import chart
+from barh import barh
 run = True
 
 
@@ -31,16 +32,18 @@ def an(s):
         while s != 'q':
             s = input(f'please enter "q" to end the {name_step} step\n')
         print()
-    elif s == 'r':
+    elif s == 't':
         bar = input()
         steps[-1][-1] = bar
-    elif s == 'e':
+    elif s == 'r':
         if input('y/n\n') == 'y':
             steps.pop(len(steps) - 1)
     elif s == 'q':
         run = False
     elif s == 'w':
         chart(steps)
+    elif s == 'e':
+        barh(steps)
     else:
         print()
 
