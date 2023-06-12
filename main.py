@@ -1,15 +1,13 @@
 from save import steps
-import datetime as dt
+from datetime import datetime as dt
 from constants import activities, actions, sp
 from circle_chart import chart
 from barh import barh
-run = True
 
 
 def an(s):
     from save import steps
     from constants import activities
-    global run
     if s.isdigit():
         s = int(s)
         if s != 1:
@@ -26,7 +24,7 @@ def an(s):
                 return
         else:
             name_step = activities[s][0]
-        steps.append([name_step, dt.datetime.now().timestamp(), str(dt.datetime.fromtimestamp(int(dt.datetime.now().timestamp()))), ''])
+        steps.append([name_step, dt.now().timestamp(), str(dt.fromtimestamp(int(dt.now().timestamp()))), ''])
         print(f'{name_step} step is underway')
         s = input(f'please enter "q" to end the {name_step} step\n')
         while s != 'q':
@@ -38,8 +36,6 @@ def an(s):
     elif s == 'r':
         if input('y/n\n') == 'y':
             steps.pop(len(steps) - 1)
-    elif s == 'q':
-        run = False
     elif s == 'w':
         chart(steps)
     elif s == 'e':
@@ -48,6 +44,7 @@ def an(s):
         print()
 
 
+run = True
 while run:
     print('choosing activity:')
     for i in range(1, len(activities) + 1):
@@ -55,7 +52,11 @@ while run:
     for i in range(len(sp)):
         print(f'{sp[i]}: {actions[sp[i]]}')
     print()
-    an(input())
+    st = input()
+    if st == 'q':
+        run = False
+        break
+    an(st)
 
 f = open('save.py', 'w')
 f.write('steps = [\n')

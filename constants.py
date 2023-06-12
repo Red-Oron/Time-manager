@@ -3,7 +3,7 @@ from time import timezone
 activities = {
     1: ['sleep'],
     2: ['relax', {1: 'watching video', 2: 'playing game', 3: 'other'}],
-    3: ['study', {1: 'lyceum', 2: 'schoolwork', 3: 'sirius', 4: 'leetCode', 5: 'OGE', 6: 'other'}],
+    3: ['study', {1: 'lyceum', 2: 'schoolwork', 3: 'sirius', 4: 'leetCode', 5: 'OGE', 6: 'htmlAcademy', 7: 'other'}],
     4: ['other', {1: 'homework', 2: 'programming', 3: 'public transport', 4: 'other'}]
 }
 actions = {
@@ -18,12 +18,13 @@ sp = ['q', 'w', 'e', 'r', 't']
 ACTIVITIES = {
     "sleep": 'blue',
     "study(other)": 'red',
-    "other(other)": 'navy',
+    "other(other)": 'teal',
     "relax(watching video)": 'green',
     "relax(playing game)": 'yellow',
     'other(programming)': 'lime',
     'study(sirius)': 'purple',
     'study(OGE)': 'pink',
+    'study(htmlAcademy)': 'silver',
 }
 
 EXCLUDE_VOIDS = False
