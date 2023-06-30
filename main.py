@@ -1,13 +1,12 @@
 from save import steps
 from datetime import datetime as dt
-from constants import activities, actions, sp
-from circle_chart import chart
-from barh import barh
+from variable_constants import activities, actions, sp, ACTIVITIES
+from chart import bar_chart, circle_chart
 
 
 def an(s):
     from save import steps
-    from constants import activities
+    from variable_constants import activities
     if s.isdigit():
         s = int(s)
         if s != 1:
@@ -24,7 +23,7 @@ def an(s):
                 return
         else:
             name_step = activities[s][0]
-        steps.append([name_step, dt.now().timestamp(), str(dt.fromtimestamp(int(dt.now().timestamp()))), ''])
+        steps.append([name_step, dt.now().timestamp(), ''])
         print(f'{name_step} step is underway')
         s = input(f'please enter "q" to end the {name_step} step\n')
         while s != 'q':
@@ -37,15 +36,19 @@ def an(s):
         if input('y/n\n') == 'y':
             steps.pop(len(steps) - 1)
     elif s == 'w':
-        chart(steps)
+        circle_chart(steps)
     elif s == 'e':
-        barh(steps)
+        save_activities = set([_[0] for _ in steps])
+        for activity in save_activities:
+            if activity not in ACTIVITIES:
+                print(f"Занятия {activity} нет в списке активностей!\n")
+                return
+        bar_chart(steps)
     else:
         print()
 
 
-run = True
-while run:
+while True:
     print('choosing activity:')
     for i in range(1, len(activities) + 1):
         print(f'{i}: {activities[i][0]}')
@@ -54,7 +57,6 @@ while run:
     print()
     st = input()
     if st == 'q':
-        run = False
         break
     an(st)
 
