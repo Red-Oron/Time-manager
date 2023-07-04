@@ -174,10 +174,8 @@ def bar_chart(steps):
     ax[1][1].xaxis.set_major_formatter(mtick.PercentFormatter(ALL_EXPERIMENT_TIME))
 
     plt.tight_layout()
-    # saving image as desired
-    # plt.savefig(f"plot.png", bbox_inches="tight")
-
-    plt.show()
+    plt.savefig(f"bar.png", bbox_inches="tight")
+    # plt.show()
 
 
 def circle_chart(steps):
@@ -200,4 +198,5 @@ def circle_chart(steps):
             data_1.append(j)
     plt.pie(data, labels=act, autopct='%1.1f%%', radius=1.5, labeldistance=0.8, wedgeprops=dict(width=0.8))
     plt.pie(data_1, labels=act1, autopct='%1.1f%%', radius=0.7,  labeldistance=0.8)
-    plt.show()
+    plt.savefig('circle.png', bbox_inches='tight')
+    # plt.show()
